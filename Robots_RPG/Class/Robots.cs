@@ -83,6 +83,7 @@ namespace Robots_RPG.Class
                 }
             }
         }
+
         //--------------------------------------------------------------------
 
         //----------------------------Setters---------------------------------
@@ -322,12 +323,43 @@ namespace Robots_RPG.Class
                 }
             }
 
+        public void calculateTotalParameters()
+        {
+            fillParameters();
+            foreach (Parts part in parts)
+            {
+                if (part.getPartID()==selectedHead)
+                {
+                    this.health += part.getHealth();
+                    this.attackPower += part.getAttackPower();
+                    this.speed += part.getSpeed();
+                }
+                if (part.getPartID() == selectedTors)
+                {
+                    this.health += part.getHealth();
+                    this.attackPower += part.getAttackPower();
+                    this.speed += part.getSpeed();
+                }
+                if (part.getPartID() == selectedLegs)
+                {
+                    this.health += part.getHealth();
+                    this.attackPower += part.getAttackPower();
+                    this.speed += part.getSpeed();
+                }
+            }
+        }
+
             //generate two slots of empte upgrades
             void generateStandartUpgrades()
             {
                 upgrades[0] = new Upgrades();
                 upgrades[1] = new Upgrades();
             }
+
+        public void addPart(Parts part)
+        {
+            parts.Add(part);
+        }
             //--------------------------------------------------------------------
 
         }

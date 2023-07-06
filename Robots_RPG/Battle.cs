@@ -9,11 +9,13 @@ using System.Xml.Linq;
 namespace Robots_RPG
 {
     public partial class Battle : Form
-    {   
+    {
         private Robots robot1;
         private Robots robot2;
         private Random random;
         private int clickCounter = 0;
+
+        
 
         public Battle(Robots robot1, Robots robot2)
         {
@@ -39,10 +41,12 @@ namespace Robots_RPG
             UAttackArenaComboBox.Items.Add("Głowa");
             UAttackArenaComboBox.Items.Add("Tors");
             UAttackArenaComboBox.Items.Add("Nogi");
+            UAttackArenaComboBox.SelectedIndex = 0;
 
             UDefArenaComboBox.Items.Add("Głowa");
             UDefArenaComboBox.Items.Add("Tors");
             UDefArenaComboBox.Items.Add("Nogi");
+            UDefArenaComboBox.SelectedIndex = 0;
 
             HpUsera.Text = "HP Usera: " + robot1.getHealth().ToString();
             HpRobotaCumputer.Text = "HP Enemy: " + robot2.getHealth().ToString();
@@ -83,33 +87,29 @@ namespace Robots_RPG
             CommentBattleTextBox.AppendText(com + Environment.NewLine);
             if (playerDefenseSelection == computerAttackSelection)
             {
-                string comment = "Komputer udrzeł obronę gracza!";
+                string comment = "Komputer uderzył obronę gracza!";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
-
             }
             else
             {
                 int damage = robot2.getAttackPower();
-                string comment = $"Kumputer udrzeł gracza! Zadane obrażenia:{damage}";
+                string comment = $"Komputer uderzył gracza! Zadane obrażenia: {damage}";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
-
                 Attack(robot2, robot1);
             }
 
             if (computerDefenseSelection == playerAttackSelection)
             {
-                string comment = "Gracz udrzeł obronę Komputera!";
+                string comment = "Gracz uderzył obronę Komputera!";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
             }
             else
             {
                 int damage = robot1.getAttackPower();
-                string comment = $"Gracz udrzeł Komputera! Zadane obrażenia:{damage}";
+                string comment = $"Gracz uderzył Komputera! Zadane obrażenia: {damage}";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
-
                 Attack(robot1, robot2);
             }
-
 
             // Aktualizacja punktów zdrowia
             HpUsera.Text = "HP Usera: " + robot1.getHealth().ToString();
@@ -122,21 +122,27 @@ namespace Robots_RPG
                 CommentBattleTextBox.AppendText(end + Environment.NewLine);
                 string comment = "Gracz przegrał!";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
-
                 return; // Zakończ tę rundę
             }
 
             if (robot2.getHealth() <= 0)
             {
+
                 string end = "---KONIEC GRY---";
                 CommentBattleTextBox.AppendText(end + Environment.NewLine);
                 string comment = "Komputer przegrał!";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+
+                // Dodawanie 500 coins i 500 tools do globalnych zmiennych
+                FileHelper.GlobalResources.Coins += 500;
+                FileHelper.GlobalResources.xTools += 500;
+
+                // Zapisz dane do pliku
+                string filePath = "dane.txt";
+                FileHelper.SaveDataToFile(filePath, FileHelper.GlobalResources.Coins, FileHelper.GlobalResources.xTools);
+
                 return; // Zakończ tę rundę
             }
-            RoundTagLabel.Visible = true;
-            RoundBattleLabel.Visible=true;
-            RoundBattleLabel.Text = clickCounter.ToString();
         }
 
         private string GetRandomSelection()

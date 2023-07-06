@@ -172,6 +172,7 @@
             this.AcceptModButton.TabIndex = 8;
             this.AcceptModButton.Text = "Zatwierdź";
             this.AcceptModButton.UseVisualStyleBackColor = true;
+            this.AcceptModButton.Click += new System.EventHandler(this.AcceptModButton_Click);
             // 
             // label4
             // 

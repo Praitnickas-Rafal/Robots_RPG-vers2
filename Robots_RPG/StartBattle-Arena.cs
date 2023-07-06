@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Robots_RPG.Battle;
 
 namespace Robots_RPG
 {
@@ -24,6 +25,7 @@ namespace Robots_RPG
         {
             listaRobotow = new List<Robots>(); // Inicjalizacja listy robotów
             List<Robots> loadedRobots = sr.Load("file.txt");
+            FileHelper.LoadDataFromFile("Dane.txt");
             if (loadedRobots != null)
             {
                 listaRobotow.AddRange(loadedRobots);
@@ -38,9 +40,15 @@ namespace Robots_RPG
 
             foreach (Robots robot in listaRobotow)
             {
-               ChoiseRobotArenaComboBox.Items.Add(robot.getName());
-               ChoiseRobotaEComboBox.Items.Add(robot.getName());
+                ChoiseRobotArenaComboBox.Items.Add(robot.getName());
+                ChoiseRobotaEComboBox.Items.Add(robot.getName());
             }
+
+            int coins = FileHelper.GlobalResources.Coins; // Odczytanie wartości Coins
+            CoinsArenaSLabel.Text = coins.ToString(); 
+
+            int xTools = FileHelper.GlobalResources.xTools; // Odczytanie wartości Coins
+            ToolsArenaSLabel.Text = xTools.ToString(); 
         }
 
         private void ArenaStartBattleButton_Click(object sender, EventArgs e)
@@ -48,6 +56,8 @@ namespace Robots_RPG
             // Form ktury przezuca na form battle ->
             if (ChoiseRobotArenaComboBox.SelectedItem!=null && ChoiseRobotaEComboBox.SelectedItem != null)
             {
+                robot1.calculateTotalParameters();
+                robot2.calculateTotalParameters();
                 Battle s1 = new Battle(robot1, robot2);
                 s1.Show();
                 this.Hide();
@@ -118,6 +128,11 @@ namespace Robots_RPG
                     robot2 = robot;
                 }
             }
+        }
+
+        private void CoinsArenaSLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

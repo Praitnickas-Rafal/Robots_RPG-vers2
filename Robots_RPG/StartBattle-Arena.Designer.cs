@@ -39,17 +39,19 @@
             this.ArenaVSPictureBox = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.CoinsArenaSLabel = new System.Windows.Forms.Label();
+            this.ToolsArenaSLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolsGarageLabel = new System.Windows.Forms.Label();
-            this.coinsGarageLabel = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.EnemyArenaSGroupBox.SuspendLayout();
             this.UserArenaSGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserArenaSPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyArenaSPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArenaVSPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // EnemyArenaSGroupBox
@@ -159,49 +161,59 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pictureBox2
+            // CoinsArenaSLabel
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(695, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.CoinsArenaSLabel.AutoSize = true;
+            this.CoinsArenaSLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoinsArenaSLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.CoinsArenaSLabel.Location = new System.Drawing.Point(103, 38);
+            this.CoinsArenaSLabel.Name = "CoinsArenaSLabel";
+            this.CoinsArenaSLabel.Size = new System.Drawing.Size(110, 37);
+            this.CoinsArenaSLabel.TabIndex = 8;
+            this.CoinsArenaSLabel.Text = "54461";
+            this.CoinsArenaSLabel.Click += new System.EventHandler(this.CoinsArenaSLabel_Click);
+            // 
+            // ToolsArenaSLabel
+            // 
+            this.ToolsArenaSLabel.AutoSize = true;
+            this.ToolsArenaSLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToolsArenaSLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ToolsArenaSLabel.Location = new System.Drawing.Point(335, 38);
+            this.ToolsArenaSLabel.Name = "ToolsArenaSLabel";
+            this.ToolsArenaSLabel.Size = new System.Drawing.Size(112, 37);
+            this.ToolsArenaSLabel.TabIndex = 9;
+            this.ToolsArenaSLabel.Text = "50000";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(482, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(33, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // toolsGarageLabel
+            // pictureBox2
             // 
-            this.toolsGarageLabel.AutoSize = true;
-            this.toolsGarageLabel.BackColor = System.Drawing.Color.Transparent;
-            this.toolsGarageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolsGarageLabel.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.toolsGarageLabel.Location = new System.Drawing.Point(596, 26);
-            this.toolsGarageLabel.Name = "toolsGarageLabel";
-            this.toolsGarageLabel.Size = new System.Drawing.Size(93, 37);
-            this.toolsGarageLabel.TabIndex = 19;
-            this.toolsGarageLabel.Text = "5492";
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(265, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
             // 
-            // coinsGarageLabel
+            // groupBox1
             // 
-            this.coinsGarageLabel.AutoSize = true;
-            this.coinsGarageLabel.BackColor = System.Drawing.Color.Transparent;
-            this.coinsGarageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coinsGarageLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.coinsGarageLabel.Location = new System.Drawing.Point(392, 26);
-            this.coinsGarageLabel.Name = "coinsGarageLabel";
-            this.coinsGarageLabel.Size = new System.Drawing.Size(93, 37);
-            this.coinsGarageLabel.TabIndex = 18;
-            this.coinsGarageLabel.Text = "5000";
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.ToolsArenaSLabel);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.CoinsArenaSLabel);
+            this.groupBox1.Location = new System.Drawing.Point(370, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(510, 100);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
             // 
             // StartBattle_Arena
             // 
@@ -209,10 +221,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1041);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.toolsGarageLabel);
-            this.Controls.Add(this.coinsGarageLabel);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ArenaVSPictureBox);
@@ -229,10 +238,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserArenaSPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EnemyArenaSPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArenaVSPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -248,9 +258,10 @@
         private System.Windows.Forms.PictureBox ArenaVSPictureBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label CoinsArenaSLabel;
+        private System.Windows.Forms.Label ToolsArenaSLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label toolsGarageLabel;
-        private System.Windows.Forms.Label coinsGarageLabel;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

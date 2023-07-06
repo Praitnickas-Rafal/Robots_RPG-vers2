@@ -55,9 +55,11 @@
     <Compile Include="Battle.Designer.cs">
       <DependentUpon>Battle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Class\FileHelper.cs" />
     <Compile Include="Class\Parts.cs" />
     <Compile Include="Class\Robots.cs" />
     <Compile Include="Class\SaveRobot.cs" />
+    <Compile Include="Class\Story.cs" />
     <Compile Include="Class\Upgrades.cs" />
     <Compile Include="Class\Weapons.cs" />
     <Compile Include="Form1.cs">

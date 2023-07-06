@@ -23,14 +23,14 @@ namespace Robots_RPG.Class
         //--------------------------------------------------------------------
 
         //---------------------------Constructors-----------------------------
-        public Parts(string name, string type, int health, int speed, int attackPower)
+        public Parts(string name, string type, int health, int speed, int attackPower,string rarity)
         {
             this.name = name;
             this.type = type;
             this.health = health;
             this.speed = speed;
             this.attackPower = attackPower;
-            //this.rarity = rarity;
+            this.rarity = rarity;
 
             int tmpID = 0;
             //Random rnd = new Random();
