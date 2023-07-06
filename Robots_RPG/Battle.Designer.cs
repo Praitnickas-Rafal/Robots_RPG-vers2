@@ -42,6 +42,9 @@
             this.UAttackArenaComboBox = new System.Windows.Forms.ComboBox();
             this.USpeedBattleLabel = new System.Windows.Forms.Label();
             this.UDamageBattleLabel = new System.Windows.Forms.Label();
+            this.AttackButton = new System.Windows.Forms.Button();
+            this.RoundBattleLabel = new System.Windows.Forms.Label();
+            this.RoundTagLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LeftRobotPicterBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightRobotPictureBox)).BeginInit();
             this.OptionBattleGroupBox.SuspendLayout();
@@ -82,11 +85,15 @@
             // 
             // CommentBattleTextBox
             // 
-            this.CommentBattleTextBox.Location = new System.Drawing.Point(749, 879);
+            this.CommentBattleTextBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.CommentBattleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CommentBattleTextBox.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.CommentBattleTextBox.Location = new System.Drawing.Point(749, 836);
             this.CommentBattleTextBox.Multiline = true;
             this.CommentBattleTextBox.Name = "CommentBattleTextBox";
-            this.CommentBattleTextBox.Size = new System.Drawing.Size(438, 140);
+            this.CommentBattleTextBox.Size = new System.Drawing.Size(438, 183);
             this.CommentBattleTextBox.TabIndex = 6;
+            this.CommentBattleTextBox.TextChanged += new System.EventHandler(this.CommentBattleTextBox_TextChanged);
             // 
             // BattleExitButton
             // 
@@ -149,6 +156,7 @@
             this.UDefArenaComboBox.Name = "UDefArenaComboBox";
             this.UDefArenaComboBox.Size = new System.Drawing.Size(176, 33);
             this.UDefArenaComboBox.TabIndex = 1;
+            this.UDefArenaComboBox.SelectedIndexChanged += new System.EventHandler(this.UDefArenaComboBox_SelectedIndexChanged);
             // 
             // UAttackArenaComboBox
             // 
@@ -157,7 +165,6 @@
             this.UAttackArenaComboBox.Name = "UAttackArenaComboBox";
             this.UAttackArenaComboBox.Size = new System.Drawing.Size(176, 33);
             this.UAttackArenaComboBox.TabIndex = 0;
-            this.UAttackArenaComboBox.SelectedIndexChanged += new System.EventHandler(this.UAttackArenaComboBox_SelectedIndexChanged);
             // 
             // USpeedBattleLabel
             // 
@@ -183,12 +190,52 @@
             this.UDamageBattleLabel.TabIndex = 16;
             this.UDamageBattleLabel.Text = "HP:";
             // 
+            // AttackButton
+            // 
+            this.AttackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AttackButton.Location = new System.Drawing.Point(848, 762);
+            this.AttackButton.Name = "AttackButton";
+            this.AttackButton.Size = new System.Drawing.Size(231, 48);
+            this.AttackButton.TabIndex = 17;
+            this.AttackButton.Text = "START";
+            this.AttackButton.UseVisualStyleBackColor = true;
+            this.AttackButton.Click += new System.EventHandler(this.AttackButton_Click_1);
+            // 
+            // RoundBattleLabel
+            // 
+            this.RoundBattleLabel.AutoSize = true;
+            this.RoundBattleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RoundBattleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoundBattleLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RoundBattleLabel.Location = new System.Drawing.Point(956, 14);
+            this.RoundBattleLabel.Name = "RoundBattleLabel";
+            this.RoundBattleLabel.Size = new System.Drawing.Size(156, 42);
+            this.RoundBattleLabel.TabIndex = 18;
+            this.RoundBattleLabel.Text = "Round :";
+            this.RoundBattleLabel.Visible = false;
+            // 
+            // RoundTagLabel
+            // 
+            this.RoundTagLabel.AutoSize = true;
+            this.RoundTagLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RoundTagLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoundTagLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RoundTagLabel.Location = new System.Drawing.Point(812, 14);
+            this.RoundTagLabel.Name = "RoundTagLabel";
+            this.RoundTagLabel.Size = new System.Drawing.Size(156, 42);
+            this.RoundTagLabel.TabIndex = 19;
+            this.RoundTagLabel.Text = "Round :";
+            this.RoundTagLabel.Visible = false;
+            // 
             // Battle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1041);
+            this.Controls.Add(this.RoundTagLabel);
+            this.Controls.Add(this.RoundBattleLabel);
+            this.Controls.Add(this.AttackButton);
             this.Controls.Add(this.UDamageBattleLabel);
             this.Controls.Add(this.USpeedBattleLabel);
             this.Controls.Add(this.OptionBattleGroupBox);
@@ -225,5 +272,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label USpeedBattleLabel;
         private System.Windows.Forms.Label UDamageBattleLabel;
+        private System.Windows.Forms.Button AttackButton;
+        private System.Windows.Forms.Label RoundBattleLabel;
+        private System.Windows.Forms.Label RoundTagLabel;
     }
 }

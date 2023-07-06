@@ -66,10 +66,16 @@
             this.TorsParametsGarageLabel = new System.Windows.Forms.Label();
             this.HeadParametsGarageLabel = new System.Windows.Forms.Label();
             this.garageMenuPicture = new System.Windows.Forms.PictureBox();
+            this.coinsGarageLabel = new System.Windows.Forms.Label();
+            this.toolsGarageLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.parametryRobotaGarage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.garageMenuPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // GarageMenuBack
@@ -486,12 +492,60 @@
             this.garageMenuPicture.TabIndex = 13;
             this.garageMenuPicture.TabStop = false;
             // 
+            // coinsGarageLabel
+            // 
+            this.coinsGarageLabel.AutoSize = true;
+            this.coinsGarageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.coinsGarageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coinsGarageLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.coinsGarageLabel.Location = new System.Drawing.Point(303, 26);
+            this.coinsGarageLabel.Name = "coinsGarageLabel";
+            this.coinsGarageLabel.Size = new System.Drawing.Size(93, 37);
+            this.coinsGarageLabel.TabIndex = 14;
+            this.coinsGarageLabel.Text = "5000";
+            // 
+            // toolsGarageLabel
+            // 
+            this.toolsGarageLabel.AutoSize = true;
+            this.toolsGarageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.toolsGarageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolsGarageLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolsGarageLabel.Location = new System.Drawing.Point(507, 26);
+            this.toolsGarageLabel.Name = "toolsGarageLabel";
+            this.toolsGarageLabel.Size = new System.Drawing.Size(93, 37);
+            this.toolsGarageLabel.TabIndex = 15;
+            this.toolsGarageLabel.Text = "5492";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(393, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(606, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            // 
             // Garage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.toolsGarageLabel);
+            this.Controls.Add(this.coinsGarageLabel);
             this.Controls.Add(this.garageMenuPicture);
             this.Controls.Add(this.parametryRobotaGarage);
             this.Controls.Add(this.groupBox2);
@@ -507,7 +561,10 @@
             this.parametryRobotaGarage.ResumeLayout(false);
             this.parametryRobotaGarage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.garageMenuPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -550,5 +607,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label coinsGarageLabel;
+        private System.Windows.Forms.Label toolsGarageLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

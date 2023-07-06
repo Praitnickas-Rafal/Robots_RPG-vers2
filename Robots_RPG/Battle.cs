@@ -1,26 +1,26 @@
 ﻿using Robots_RPG.Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Robots_RPG
 {
     public partial class Battle : Form
-    {
+    {   
         private Robots robot1;
         private Robots robot2;
-        public Battle(Robots robot1,Robots robot2)
+        private Random random;
+        private int clickCounter = 0;
+
+        public Battle(Robots robot1, Robots robot2)
         {
             InitializeComponent();
             this.robot1 = robot1;
             this.robot2 = robot2;
+            random = new Random();
         }
 
         private void Battle_Load(object sender, EventArgs e)
@@ -30,9 +30,8 @@ namespace Robots_RPG
 
             string robotPictureName1 = Path.Combine("C:\\Users\\MSI\\OneDrive\\Рабочий стол\\Robots_RPG-Rafala-Develop-Rafala\\Robots_RPG\\img", robot1.getType() + "-L.png");
             string robotPictureName2 = Path.Combine("C:\\Users\\MSI\\OneDrive\\Рабочий стол\\Robots_RPG-Rafala-Develop-Rafala\\Robots_RPG\\img", robot2.getType() + "-R.png");
-            if (File.Exists(robotPictureName1)&& File.Exists(robotPictureName2))
+            if (File.Exists(robotPictureName1) && File.Exists(robotPictureName2))
             {
-
                 LeftRobotPicterBox.Image = Image.FromFile(robotPictureName1);
                 RightRobotPictureBox.Image = Image.FromFile(robotPictureName2);
             }
@@ -46,54 +45,113 @@ namespace Robots_RPG
             UDefArenaComboBox.Items.Add("Nogi");
 
             HpUsera.Text = "HP Usera: " + robot1.getHealth().ToString();
-
             HpRobotaCumputer.Text = "HP Enemy: " + robot2.getHealth().ToString();
 
             UDamageBattleLabel.Text = "Damage: " + robot1.getAttackPower().ToString();
             USpeedBattleLabel.Text = "Speed: " + robot1.getSpeed().ToString();
-
-
-        }
-
-        private void AttackButton_Click(object sender, EventArgs e)
-        {
-            Attack(robot1, robot2);
-            Attack(robot2, robot1);
-
-            HpUsera.Text = "HP Usera: " + robot1.getHealth().ToString();
-            HpRobotaCumputer.Text = "HP Enemy: " + robot2.getHealth().ToString();
- 
-
-            if (robot1.getHealth() <= 0)
-            {
-                MessageBox.Show("Robot1 przegrał!");
-            }
-
-            if (robot2.getHealth() <= 0)
-            {
-                MessageBox.Show("Robot2 przegrał!");
-            }
         }
 
         private void Attack(Robots attacker, Robots defender)
         {
-            int damage = 50;
+            int damage = attacker.getAttackPower();
             defender.DecreaseHealth(damage);
         }
 
         private void BattleExitButton_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Kapitulacja?", "Czy naprawdę chcesz wyjści?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Kapitulacja?", "Czy naprawdę chcesz wyjść?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(dialogResult == DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
-               StartBattle_Arena k1 = new StartBattle_Arena();
+                StartBattle_Arena k1 = new StartBattle_Arena();
                 k1.Show();
                 this.Hide();
             }
         }
 
-        private void UAttackArenaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void AttackButton_Click_1(object sender, EventArgs e)
+        {
+            clickCounter++;
+            // Wybór ataku gracza
+            string playerAttackSelection = UAttackArenaComboBox.SelectedItem.ToString();
+            string playerDefenseSelection = UDefArenaComboBox.SelectedItem.ToString();
+            // Losowy wybór ataku komputera
+            string computerAttackSelection = GetRandomSelection();
+            string computerDefenseSelection = GetRandomSelection();
+
+            string com = $"----ROUND {clickCounter}-----";
+            CommentBattleTextBox.AppendText(com + Environment.NewLine);
+            if (playerDefenseSelection == computerAttackSelection)
+            {
+                string comment = "Komputer udrzeł obronę gracza!";
+                CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+
+            }
+            else
+            {
+                int damage = robot2.getAttackPower();
+                string comment = $"Kumputer udrzeł gracza! Zadane obrażenia:{damage}";
+                CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+
+                Attack(robot2, robot1);
+            }
+
+            if (computerDefenseSelection == playerAttackSelection)
+            {
+                string comment = "Gracz udrzeł obronę Komputera!";
+                CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+            }
+            else
+            {
+                int damage = robot1.getAttackPower();
+                string comment = $"Gracz udrzeł Komputera! Zadane obrażenia:{damage}";
+                CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+
+                Attack(robot1, robot2);
+            }
+
+
+            // Aktualizacja punktów zdrowia
+            HpUsera.Text = "HP Usera: " + robot1.getHealth().ToString();
+            HpRobotaCumputer.Text = "HP Enemy: " + robot2.getHealth().ToString();
+
+            // Sprawdzenie, czy któryś z robotów stracił wszystkie punkty zdrowia
+            if (robot1.getHealth() <= 0)
+            {
+                string end = "---KONIEC GRY---";
+                CommentBattleTextBox.AppendText(end + Environment.NewLine);
+                string comment = "Gracz przegrał!";
+                CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+
+                return; // Zakończ tę rundę
+            }
+
+            if (robot2.getHealth() <= 0)
+            {
+                string end = "---KONIEC GRY---";
+                CommentBattleTextBox.AppendText(end + Environment.NewLine);
+                string comment = "Komputer przegrał!";
+                CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+                return; // Zakończ tę rundę
+            }
+            RoundTagLabel.Visible = true;
+            RoundBattleLabel.Visible=true;
+            RoundBattleLabel.Text = clickCounter.ToString();
+        }
+
+        private string GetRandomSelection()
+        {
+            string[] selections = { "Głowa", "Tors", "Nogi" };
+            int randomIndex = random.Next(0, selections.Length);
+            return selections[randomIndex];
+        }
+
+        private void UDefArenaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // tutaj wybieramy obronę
+        }
+
+        private void CommentBattleTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

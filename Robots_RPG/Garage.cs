@@ -57,6 +57,18 @@ namespace Robots_RPG
             {
                 choiseModRobotaComboBox.Items.Add(robot.getName());
             }
+            HeadRobotaCComboBox.Items.Add(PartsStorage.head1.getName());
+            HeadRobotaCComboBox.Items.Add(PartsStorage.head2.getName());
+            HeadRobotaCComboBox.Items.Add(PartsStorage.head3.getName());
+            HeadRobotaCComboBox.Items.Add(PartsStorage.head4.getName());
+            TorsRobotCComboBox.Items.Add(PartsStorage.tors1.getName());
+            TorsRobotCComboBox.Items.Add(PartsStorage.tors2.getName());
+            TorsRobotCComboBox.Items.Add(PartsStorage.tors3.getName());
+            TorsRobotCComboBox.Items.Add(PartsStorage.tors4.getName());
+            LegsRobotCComBox.Items.Add(PartsStorage.legs1.getName());
+            LegsRobotCComBox.Items.Add(PartsStorage.legs2.getName());
+            LegsRobotCComBox.Items.Add(PartsStorage.legs3.getName());
+            LegsRobotCComBox.Items.Add(PartsStorage.legs4.getName());
 
         }
 
@@ -79,7 +91,7 @@ namespace Robots_RPG
             {
                 typeRobota = TypeRobotaCComboBox.SelectedItem.ToString();
                 nameRobota = NameRobotaCTextBox.Text;
-
+                
                 MessageBox.Show($"Sukces! Dodałeś nowego robota: {nameRobota} {typeRobota}", "", MessageBoxButtons.OK);
             }
             else
@@ -94,6 +106,7 @@ namespace Robots_RPG
 
             parse_robot();
             SaveRobot.Save(listaRobotow, "file.txt");
+            SaveRobot.SaveParts(listaRobotow, "Parts.txt");
         }
 
         private void choiseModRobotaComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,12 +126,47 @@ namespace Robots_RPG
                         int robotHealth = robot.getHealth();
                         int robotDamage = robot.getAttackPower();
                         int robotSpeed = robot.getSpeed();
+                        foreach (Parts part in robot.getParts())
+                        {
+                            headModComboBox.Items.Clear();
+                            TorsModComboBox.Items.Clear();
+                            LegsModComboBox.Items.Clear();
+                            if (part.getType() == "Head")
+                            {
+                                headModComboBox.Items.Add(part.getName());
+                            }
+                            if (part.getType() == "Tors")
+                            {
+                                TorsModComboBox.Items.Add(part.getName());
+                            }
+                            if (part.getType() == "Legs")
+                            {
+                                LegsModComboBox.Items.Add(part.getName());
+                            }
+
+                            if (part.getPartID()==robot.getSelectedHead())
+                            {
+                                headModComboBox.SelectedItem = part.getName();
+
+                            }
+                            if (part.getPartID() == robot.getSelectedTors())
+                            {
+                                TorsModComboBox.SelectedItem = part.getName();
+                            }
+                            if (part.getPartID() == robot.getSelectedLegs())
+                            {
+                                LegsModComboBox.SelectedItem = part.getName();
+                            }
+
+
+                        }
+
 
                         // Wyświetl parametry robota w odpowiednich labelach
                         HealthParametsGarageLabel.Text = robotHealth.ToString();
                         DamageParametsGarageLabel.Text = robotDamage.ToString();
                         SpeedParametsGarageLabel.Text = robotSpeed.ToString();
-
+                        //HeadParametsGarageLabel.Text = 
                         break;
                     }
                 }
