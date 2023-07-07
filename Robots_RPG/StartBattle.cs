@@ -31,5 +31,12 @@ namespace Robots_RPG
             this.Hide();
             //selectedRobot.getRobots();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Garage g1 = new Garage();
+            g1.Show();
+            this.Hide();
+        }
     }
 }

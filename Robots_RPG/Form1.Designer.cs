@@ -57,6 +57,7 @@
             this.StoreMenuButton.TabIndex = 1;
             this.StoreMenuButton.Text = "STORE";
             this.StoreMenuButton.UseVisualStyleBackColor = false;
+            this.StoreMenuButton.Click += new System.EventHandler(this.StoreMenuButton_Click);
             // 
             // ChooseRobotMenuButton
             // 

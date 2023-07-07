@@ -37,5 +37,12 @@ namespace Robots_RPG
             s2.Show();
             this.Hide();
         }
+
+        private void StoreMenuButton_Click(object sender, EventArgs e)
+        {
+            Shop s2 = new Shop();
+            s2.Show();
+            this.Hide();
+        }
     }
 }

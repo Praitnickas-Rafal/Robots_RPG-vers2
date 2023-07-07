@@ -29,7 +29,7 @@ namespace Robots_RPG
         {
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-
+            MenuGarageLorWButton.Visible = false;
             string robotPictureName1 = Path.Combine("C:\\Users\\MSI\\OneDrive\\Рабочий стол\\Robots_RPG-Rafala-Develop-Rafala\\Robots_RPG\\img", robot1.getType() + "-L.png");
             string robotPictureName2 = Path.Combine("C:\\Users\\MSI\\OneDrive\\Рабочий стол\\Robots_RPG-Rafala-Develop-Rafala\\Robots_RPG\\img", robot2.getType() + "-R.png");
             if (File.Exists(robotPictureName1) && File.Exists(robotPictureName2))
@@ -83,6 +83,10 @@ namespace Robots_RPG
             string computerAttackSelection = GetRandomSelection();
             string computerDefenseSelection = GetRandomSelection();
 
+            RoundTagLabel.Visible = true;
+            RoundBattleLabel.Visible = true;
+            RoundBattleLabel.Text = clickCounter.ToString();
+
             string com = $"----ROUND {clickCounter}-----";
             CommentBattleTextBox.AppendText(com + Environment.NewLine);
             if (playerDefenseSelection == computerAttackSelection)
@@ -122,6 +126,12 @@ namespace Robots_RPG
                 CommentBattleTextBox.AppendText(end + Environment.NewLine);
                 string comment = "Gracz przegrał!";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
+                AttackButton.Enabled = false;
+                BattleExitButton.Enabled = false;
+                MenuGarageLorWButton.Visible = true;
+
+                MessageBox.Show($"Przegrałeś dla Komputera;(", "Porażka", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 return; // Zakończ tę rundę
             }
 
@@ -133,13 +143,19 @@ namespace Robots_RPG
                 string comment = "Komputer przegrał!";
                 CommentBattleTextBox.AppendText(comment + Environment.NewLine);
 
+                
+
                 // Dodawanie 500 coins i 500 tools do globalnych zmiennych
                 FileHelper.GlobalResources.Coins += 500;
-                FileHelper.GlobalResources.xTools += 500;
-
+                FileHelper.GlobalResources.xTools += 15;
                 // Zapisz dane do pliku
                 string filePath = "dane.txt";
                 FileHelper.SaveDataToFile(filePath, FileHelper.GlobalResources.Coins, FileHelper.GlobalResources.xTools);
+                AttackButton.Enabled = false;
+                BattleExitButton.Enabled = false;
+                MenuGarageLorWButton.Visible = true;
+
+                MessageBox.Show($"Wygrałeś: 500 Kronów oraz 15 Instrumentów!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return; // Zakończ tę rundę
             }
@@ -160,6 +176,13 @@ namespace Robots_RPG
         private void CommentBattleTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StartBattle_Arena k1 = new StartBattle_Arena();
+            k1.Show();
+            this.Hide();
         }
     }
 }

@@ -45,6 +45,7 @@
             this.AttackButton = new System.Windows.Forms.Button();
             this.RoundBattleLabel = new System.Windows.Forms.Label();
             this.RoundTagLabel = new System.Windows.Forms.Label();
+            this.MenuGarageLorWButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LeftRobotPicterBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightRobotPictureBox)).BeginInit();
             this.OptionBattleGroupBox.SuspendLayout();
@@ -102,7 +103,7 @@
             this.BattleExitButton.Name = "BattleExitButton";
             this.BattleExitButton.Size = new System.Drawing.Size(187, 58);
             this.BattleExitButton.TabIndex = 10;
-            this.BattleExitButton.Text = "Kapitulacja";
+            this.BattleExitButton.Text = "WYJŚĆ";
             this.BattleExitButton.UseVisualStyleBackColor = true;
             this.BattleExitButton.Click += new System.EventHandler(this.BattleExitButton_Click);
             // 
@@ -207,11 +208,11 @@
             this.RoundBattleLabel.BackColor = System.Drawing.Color.Transparent;
             this.RoundBattleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RoundBattleLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RoundBattleLabel.Location = new System.Drawing.Point(956, 14);
+            this.RoundBattleLabel.Location = new System.Drawing.Point(945, 14);
             this.RoundBattleLabel.Name = "RoundBattleLabel";
-            this.RoundBattleLabel.Size = new System.Drawing.Size(156, 42);
+            this.RoundBattleLabel.Size = new System.Drawing.Size(62, 42);
             this.RoundBattleLabel.TabIndex = 18;
-            this.RoundBattleLabel.Text = "Round :";
+            this.RoundBattleLabel.Text = "99";
             this.RoundBattleLabel.Visible = false;
             // 
             // RoundTagLabel
@@ -220,12 +221,23 @@
             this.RoundTagLabel.BackColor = System.Drawing.Color.Transparent;
             this.RoundTagLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RoundTagLabel.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RoundTagLabel.Location = new System.Drawing.Point(812, 14);
+            this.RoundTagLabel.Location = new System.Drawing.Point(797, 14);
             this.RoundTagLabel.Name = "RoundTagLabel";
             this.RoundTagLabel.Size = new System.Drawing.Size(156, 42);
             this.RoundTagLabel.TabIndex = 19;
             this.RoundTagLabel.Text = "Round :";
             this.RoundTagLabel.Visible = false;
+            // 
+            // MenuGarageLorWButton
+            // 
+            this.MenuGarageLorWButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MenuGarageLorWButton.Location = new System.Drawing.Point(205, 12);
+            this.MenuGarageLorWButton.Name = "MenuGarageLorWButton";
+            this.MenuGarageLorWButton.Size = new System.Drawing.Size(187, 58);
+            this.MenuGarageLorWButton.TabIndex = 20;
+            this.MenuGarageLorWButton.Text = "MENU";
+            this.MenuGarageLorWButton.UseVisualStyleBackColor = true;
+            this.MenuGarageLorWButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // Battle
             // 
@@ -233,6 +245,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1924, 1041);
+            this.Controls.Add(this.MenuGarageLorWButton);
             this.Controls.Add(this.RoundTagLabel);
             this.Controls.Add(this.RoundBattleLabel);
             this.Controls.Add(this.AttackButton);
@@ -275,5 +288,6 @@
         private System.Windows.Forms.Button AttackButton;
         private System.Windows.Forms.Label RoundBattleLabel;
         private System.Windows.Forms.Label RoundTagLabel;
+        private System.Windows.Forms.Button MenuGarageLorWButton;
     }
 }
